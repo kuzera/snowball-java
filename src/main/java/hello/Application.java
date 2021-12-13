@@ -159,7 +159,7 @@ static class PlayerState {
 
     // System.out.println(arenaUpdate);
     // String[] commands = new String[]{"F", "R", "L", "T"};
-    int i = new Random().nextInt(10);
+    int i = new Random().nextInt(20);
     // return commands[i];
     String me = arenaUpdate._links.self.href;
     PlayerState myState = arenaUpdate.arena.state.get(me);
