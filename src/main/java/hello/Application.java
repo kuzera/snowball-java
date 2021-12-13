@@ -103,8 +103,12 @@ static class PlayerState {
         } else if (myState.direction.equals("E")) {
             command = "R";
         } else if (myState.direction.equals("N")) {
-            command = "F";
+            command = "R";
+        } else if (myState.direction.equals("S")) {
+            command = "L";
         }
+    } else if (i==4) {
+        command = "F";
     }
     return command;
   }
