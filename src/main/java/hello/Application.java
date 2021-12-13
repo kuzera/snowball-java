@@ -24,6 +24,8 @@ import java.time.Instant;
 @SpringBootApplication
 @RestController
 public class Application {
+
+    String lastCommand = "T";
     static class WriteCommittedStream {
 
         final JsonStreamWriter jsonStreamWriter;
@@ -163,19 +165,31 @@ static class PlayerState {
     PlayerState myState = arenaUpdate.arena.state.get(me);
     System.out.println("[" + i + "]" + me + ": " + myState);
     String command = "T";
-    if (i<=3) {
-        if (myState.direction.equals("W")) {
+    if (i<5) {
+        if (lastCommand == "T") {
             command = "L";
-        } else if (myState.direction.equals("E")) {
+        } else if (lastCommand == "L") {
+            command = "F";
+        } else if (lastCommand == "F") {
             command = "R";
-        } else if (myState.direction.equals("N")) {
-            command = "R";
-        } else if (myState.direction.equals("S")) {
-            command = "L";
+        } else if (lastCommand == "R") {
+            command = "T";
         }
-    } else if (i==4) {
-        command = "F";
+
+
+        // if (myState.direction.equals("W")) {
+        //     command = "L";
+        // } else if (myState.direction.equals("E")) {
+        //     command = "R";
+        // } else if (myState.direction.equals("N")) {
+        //     command = "R";
+        // } else if (myState.direction.equals("S")) {
+        //     command = "L";
+        // }
+    } else if (i==6) {
+        command = "T";
     }
+    lastCommand = command;
     return command;
   }
 
