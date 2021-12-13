@@ -165,7 +165,7 @@ static class PlayerState {
     PlayerState myState = arenaUpdate.arena.state.get(me);
     System.out.println("[" + i + "]" + me + ": " + myState);
     String command = "T";
-    if (i<=3) {
+    if (i<=2) {
         if (lastCommand == "T") {
             command = "L";
         } else if (lastCommand == "L") {
@@ -186,7 +186,7 @@ static class PlayerState {
         // } else if (myState.direction.equals("S")) {
         //     command = "L";
         // }
-    } else if (i==4) {
+    } else if (i==3) {
         command = "F";
     }
     lastCommand = command;
